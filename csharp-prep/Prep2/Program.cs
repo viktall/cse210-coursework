@@ -10,6 +10,8 @@ class Program
         string score = Console.ReadLine();
 
         int percentage = int.Parse(score);
+
+        int lastDigit = percentage % 10;
         
         if(percentage >= 90)
         {
@@ -32,8 +34,38 @@ class Program
             letter = "F";
         }
 
+        if (lastDigit >= 7)
+        {
+            if (letter == "A" || letter =="F")
+            {
+                Console.WriteLine($"You scored a/an {letter}");
+            }
+            else
+            {
+                Console.WriteLine($"You scored a/an {letter}+");
+            }
+            
+        }
 
-        Console.WriteLine($"You scored a/an {letter}");
+        else if(lastDigit <= 3)
+        {
+
+            if (letter == "F")
+            {
+                Console.WriteLine($"You scored a/an {letter}");
+            }
+            
+            else{
+                Console.WriteLine($"You scored a/an {letter}-");
+            }
+            
+        }
+
+        else
+        {
+            Console.WriteLine($"You scored a/an {letter}");
+        }
+
         
         if(percentage >= 70)
         {
